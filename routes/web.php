@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix'=>'bd'], function(){
+    Route::get('index', 'BDController@index');
+    Route::get('detalle/{id}', 'BDController@detail');
+    Route::get('crear', 'BDController@create');
+    Route::post('store', 'BDController@store');
+    Route::get('borrar/{id}', 'BDController@destroy');
+    Route::get('editar', 'BDController@editar');
+    Route::post('update', 'BDController@update');
+});
